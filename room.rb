@@ -1,7 +1,8 @@
 class Room
-  attr_reader :room_name, :guests, :songs
-  def initialize(room_name)
+  attr_reader :room_name, :entry_fee, :guests, :songs
+  def initialize(room_name, entry_fee)
     @room_name = room_name
+    @entry_fee = entry_fee
     @guests = []
     @songs = []
   end
@@ -24,5 +25,13 @@ class Room
       else
         return false
       end
+  end
+
+  def matches_title(song)
+    if @songs.include?(song)
+      return "Whoo"
+    else
+      return "Try another room"
+    end
   end
 end
